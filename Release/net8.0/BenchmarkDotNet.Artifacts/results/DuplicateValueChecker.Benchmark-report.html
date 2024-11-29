@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>DuplicateValueChecker.Benchmark-20240925-134857</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 10 (10.0.19045.4894/22H2/2022Update)
+Intel Core i7-8650U CPU 1.90GHz (Kaby Lake R), 1 CPU, 8 logical and 4 physical cores
+.NET SDK 8.0.200
+  [Host]     : .NET 8.0.2 (8.0.224.6711), X64 RyuJIT AVX2 [AttachedDebugger]
+  Job-HTJNCX : .NET 8.0.2 (8.0.224.6711), X64 RyuJIT AVX2
+</code></pre>
+<pre><code>MaxIterationCount=24  
+</code></pre>
+
+<table>
+<thead><tr><th>Method      </th><th>N</th><th>Mean   </th><th>Error  </th><th>StdDev </th><th>Gen0</th><th>Gen1</th><th>Gen2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>HasDuplicateValue1</td><td>100</td><td>8.426 &mu;s</td><td>0.1019 &mu;s</td><td>0.0954 &mu;s</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HasDuplicateValue2</td><td>100</td><td>1.465 &mu;s</td><td>0.0112 &mu;s</td><td>0.0094 &mu;s</td><td>1.4343</td><td>-</td><td>-</td><td>6000 B</td>
+</tr><tr><td>HasDuplicateValue1</td><td>1000</td><td>683.465 &mu;s</td><td>13.6451 &mu;s</td><td>15.7137 &mu;s</td><td>-</td><td>-</td><td>-</td><td>6 B</td>
+</tr><tr><td>HasDuplicateValue2</td><td>1000</td><td>13.472 &mu;s</td><td>0.2650 &mu;s</td><td>0.2721 &mu;s</td><td>13.9771</td><td>-</td><td>-</td><td>58664 B</td>
+</tr><tr><td>HasDuplicateValue1</td><td>10000</td><td>67,101.580 &mu;s</td><td>1,299.6535 &mu;s</td><td>1,085.2695 &mu;s</td><td>-</td><td>-</td><td>-</td><td>559 B</td>
+</tr><tr><td>HasDuplicateValue2</td><td>10000</td><td>232.485 &mu;s</td><td>2.4812 &mu;s</td><td>2.0719 &mu;s</td><td>95.2148</td><td>95.2148</td><td>95.2148</td><td>538657 B</td>
+</tr></tbody></table>
+</body>
+</html>
